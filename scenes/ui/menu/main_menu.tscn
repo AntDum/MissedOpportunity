@@ -1,0 +1,239 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnn6vrhv0ohms"]
+
+[ext_resource type="Script" uid="uid://cjuym30goc0w4" path="res://scripts/ui/menu/main_menu.gd" id="1_t18ix"]
+[ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="2_5ssjm"]
+
+[sub_resource type="Gradient" id="Gradient_5ssjm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.416667, 1)
+colors = PackedColorArray(0.32, 0.173227, 0.0448, 1, 0.56478, 0.325774, 0.116624, 1, 0.69, 0.3933, 0.0966, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eip10"]
+gradient = SubResource("Gradient_5ssjm")
+fill = 1
+fill_from = Vector2(0.87931, 0.400862)
+fill_to = Vector2(0.844828, 0.521552)
+repeat = 2
+
+[sub_resource type="Animation" id="Animation_5ssjm"]
+resource_name = "appear"
+
+[sub_resource type="Animation" id="Animation_eip10"]
+resource_name = "click_play"
+length = 0.7
+step = 0.033
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayButton:anchor_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.00833333, 0.2, 0.7),
+"transitions": PackedFloat32Array(0.6, 0.4, 1),
+"update": 0,
+"values": [0.5, 0.4, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayButton:anchor_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.00833333, 0.2, 0.7),
+"transitions": PackedFloat32Array(0.6, 0.4, 1),
+"update": 0,
+"values": [0.5, 0.4, 2.0]
+}
+
+[sub_resource type="Animation" id="Animation_araup"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayButton:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayButton:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CreditsButton:anchor_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CreditsButton:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_boguu"]
+resource_name = "click_credits"
+length = 0.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish_animation"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditsButton:anchor_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(0.6, 0.4, 1),
+"update": 0,
+"values": [0.5, 0.4, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CreditsButton:anchor_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7),
+"transitions": PackedFloat32Array(0.6, 0.4, 1),
+"update": 0,
+"values": [0.5, 0.4, 2.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_boguu"]
+_data = {
+&"RESET": SubResource("Animation_araup"),
+&"appear": SubResource("Animation_5ssjm"),
+&"click_credits": SubResource("Animation_boguu"),
+&"click_play": SubResource("Animation_eip10")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t18ix")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1280, 512)
+texture = SubResource("GradientTexture2D_eip10")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.238
+anchor_right = 0.5
+anchor_bottom = 0.238
+offset_left = -300.0
+offset_top = -39.224
+offset_right = 300.0
+offset_bottom = 38.776
+pivot_offset = Vector2(300, 39)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Missed Oppotunity"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.503
+anchor_right = 0.5
+anchor_bottom = 0.503
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(160, 40)
+size_flags_horizontal = 4
+text = "Play"
+script = ExtResource("2_5ssjm")
+metadata/_custom_type_script = "uid://calio6yuvvuaq"
+
+[node name="CreditsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.667
+anchor_right = 0.5
+anchor_bottom = 0.667
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(160, 40)
+size_flags_horizontal = 4
+text = "Credits"
+script = ExtResource("2_5ssjm")
+metadata/_custom_type_script = "uid://calio6yuvvuaq"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_boguu")
+}
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

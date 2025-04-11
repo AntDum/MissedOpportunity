@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bpl6k202hd0ev"]
+
+[ext_resource type="StyleBox" uid="uid://di7ocklu0qy6d" path="res://ressources/themes/styles/button_hover.tres" id="1_h0vsg"]
+[ext_resource type="StyleBox" uid="uid://s88hlu8qdjyi" path="res://ressources/themes/styles/button_normal.tres" id="2_ijnw2"]
+[ext_resource type="StyleBox" uid="uid://cmu381xhupn4x" path="res://ressources/themes/styles/button_pressed.tres" id="3_tva5e"]
+[ext_resource type="StyleBox" uid="uid://bm7yyeu3wit4e" path="res://ressources/themes/styles/panel.tres" id="4_3i7o6"]
+[ext_resource type="StyleBox" uid="uid://cf6qdtlsf4byw" path="res://ressources/themes/styles/pb_background.tres" id="5_js16m"]
+[ext_resource type="StyleBox" uid="uid://ciayurf3nq0jr" path="res://ressources/themes/styles/pb_fill.tres" id="6_6sv8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8mk26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pit8i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4t2wd"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 5
+Button/font_sizes/font_size = 24
+Button/styles/focus = SubResource("StyleBoxEmpty_8mk26")
+Button/styles/hover = ExtResource("1_h0vsg")
+Button/styles/normal = ExtResource("2_ijnw2")
+Button/styles/pressed = ExtResource("3_tva5e")
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_pit8i")
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 24
+PanelContainer/styles/panel = ExtResource("4_3i7o6")
+ProgressBar/constants/outline_size = 5
+ProgressBar/styles/background = ExtResource("5_js16m")
+ProgressBar/styles/fill = ExtResource("6_6sv8s")
+VSeparator/styles/separator = SubResource("StyleBoxEmpty_4t2wd")

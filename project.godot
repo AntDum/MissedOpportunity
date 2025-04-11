@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="MissedOpportunity"
+run/main_scene="uid://dnn6vrhv0ohms"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://singletons/scene_manager.tscn"
+EventBus="*res://singletons/event_bus.gd"
+StatManager="*res://singletons/stat_manager.gd"
+AudioManager="*res://singletons/audio_manager.tscn"
+
+[display]
+
+window/stretch/aspect="ignore"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://ressources/": "orange",
+"res://scenes/": "green",
+"res://scripts/": "blue",
+"res://singletons/": "purple"
+}
+
+[gui]
+
+theme/custom="uid://bpl6k202hd0ev"
+theme/custom_font="uid://cbr3utk6kbvf1"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
