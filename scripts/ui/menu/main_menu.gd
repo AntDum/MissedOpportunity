@@ -7,6 +7,9 @@ const CREDITS_SCREEN = "res://scenes/ui/menu/credits_screen.tscn"
 
 var scene_to_go : String = ""
 
+func _ready() -> void:
+	AudioManager.play_music("title_music")
+
 func _already_clicked() -> bool:
 	return scene_to_go != ""
 
