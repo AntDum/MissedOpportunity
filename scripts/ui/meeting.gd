@@ -24,7 +24,17 @@ func _on_hover_button_pressed() -> void:
 	_hide()
 
 func _show() -> void:
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
+	var objectif_y = global_position.y
+	global_position.y -= 1000
 	visible = true
+	tween.tween_property(self, "global_position:y", objectif_y + 50, 0.3)
+	tween.tween_property(self, "global_position:y", objectif_y, 0.1)
 	
 func _hide() -> void:
-	visible = false
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	var objectif_y = global_position.y
+	tween.tween_property(self, "global_position:y", global_position.y + 50, 0.1)
+	tween.tween_property(self, "global_position:y", global_position.y - 1000, 0.3)
+	tween.tween_callback(func(): visible = false)
+	tween.tween_callback(func(): global_position.y = objectif_y)

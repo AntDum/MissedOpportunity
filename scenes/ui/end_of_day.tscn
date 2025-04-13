@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ojuuen6cauuw"]
+[gd_scene load_steps=5 format=3 uid="uid://ojuuen6cauuw"]
 
 [ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="1_7g7pd"]
 [ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="1_l8ay4"]
 [ext_resource type="Script" uid="uid://6xmna6hkerns" path="res://scripts/ui/end_of_day.gd" id="1_v0pmp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0pmp"]
+font_size = 36
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="EndOfDay" type="Control"]
 layout_mode = 3
@@ -79,6 +85,7 @@ text = "Budget :"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "300 €"
 horizontal_alignment = 2
 script = ExtResource("1_7g7pd")
@@ -97,6 +104,7 @@ text = "Investment :"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "300 €"
 horizontal_alignment = 2
 script = ExtResource("1_7g7pd")
@@ -115,6 +123,7 @@ text = "Salary :"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "300 €"
 horizontal_alignment = 2
 script = ExtResource("1_7g7pd")
@@ -133,6 +142,7 @@ text = "Benefits :"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "300 €"
 horizontal_alignment = 2
 script = ExtResource("1_7g7pd")
@@ -155,10 +165,14 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "300 €"
+label_settings = SubResource("LabelSettings_v0pmp")
 horizontal_alignment = 2
 script = ExtResource("1_7g7pd")
 pattern = "%d €"
 metadata/_custom_type_script = "uid://n6d1b1v73abg"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="HoverButton" type="Button" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

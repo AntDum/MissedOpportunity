@@ -29,11 +29,11 @@ func _ready() -> void:
 	budget = start_budget
 
 func get_difficulty() -> int:
-	return roundi((10 * meeting) + (10 * day))
+	return roundi((5 * meeting) + (10 * day))
 
 func _start_meeting() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	var offset = Vector2(15, 15)
+	var offset = Vector2(20, 10)
 	for i in range(3):
 		var offer = OFFER.instantiate()
 		offer.set_funding(Funding.new(get_difficulty()))

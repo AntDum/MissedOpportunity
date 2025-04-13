@@ -170,7 +170,7 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("4_hdn0s")
 
-[node name="AcceptPoint" type="Control" parent="Points/Accept" groups=["restPoint"]]
+[node name="AcceptPoint" type="Control" parent="Points/Accept" node_paths=PackedStringArray("label") groups=["restPoint"]]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,6 +182,7 @@ offset_right = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_6p30w")
+label = NodePath("../Label")
 maximum = 2
 minimum = 0
 metadata/_custom_type_script = "uid://c27p4l4gcmvh8"
@@ -193,6 +194,22 @@ offset_top = 219.0
 offset_right = 157.0
 offset_bottom = 283.0
 texture = ExtResource("7_2jkuu")
+
+[node name="Label" type="Label" parent="Points/Accept"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.362
+anchor_right = 0.5
+anchor_bottom = 1.362
+offset_left = -20.0
+offset_top = 476.0
+offset_right = 20.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 45
+text = "MAX 2"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

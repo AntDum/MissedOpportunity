@@ -11,8 +11,12 @@ const LEVELS = "res://scenes/levels/levels.tscn"
 func _ready() -> void:
 	animation_player.play("show")
 	if StatManager.bankrupt:
+		score_value.label_settings.font_color = Color.RED
+		title.label_settings.font_color = Color.RED
 		title.text = "Bankrupt"
 	else:
+		score_value.label_settings.font_color = Color.RED
+		title.label_settings.font_color = Color.GREEN
 		title.text = "Success"
 		
 

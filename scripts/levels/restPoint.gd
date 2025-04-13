@@ -1,6 +1,8 @@
 extends Control
 class_name RestPoint
 
+@export var label : Label
+
 @export var rest_offset : Vector2 = Vector2(10, 10)
 @export var maximum = 3
 @export var minimum = 3
@@ -16,6 +18,8 @@ func _update_money(new_money) -> void:
 		cur_max = minimum
 	else:
 		cur_max = maximum
+	if label:
+		label.text = "MAX %d" % cur_max
 
 func get_fundings() -> Array[Funding]:
 	var fundings : Array[Funding] = []
