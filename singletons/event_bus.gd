@@ -17,7 +17,7 @@ signal win
 signal lost
 
 signal add_funding(fundings: Array[Funding])
-
+signal result_day(result : DayResult)
 signal money_updated(money: int)
 
 signal new_best_score

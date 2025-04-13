@@ -1,6 +1,7 @@
 extends Node
 class_name RessourceManager
 
+@export_group("Node connexion")
 @export var accepted_bin : RestPoint 
 @export var refused_bin : RestPoint
 
@@ -13,16 +14,21 @@ var fundings = []
 
 var day = 0
 var meeting = 0
-@export var budget = 100
+@export_group("")
+@export var start_budget = 100
+var budget = 100
+@export var salary = -200
+
 
 func _ready() -> void:
 	EventBus.start_of_day.connect(_new_day)
 	EventBus.start_of_meeting.connect(_new_meeting)
 	EventBus.meeting_started.connect(_start_meeting)
 	EventBus.end_of_meeting.connect(_end_meeting)
+	EventBus.end_of_day.connect(_end_day)
 
 func get_difficulty() -> int:
-	return roundi(budget / 10.0)
+	return roundi(start_budget / 10.0)
 
 func _start_meeting() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -39,13 +45,28 @@ func _start_meeting() -> void:
 func _end_meeting() -> void:
 	for fund in accepted_bin.get_fundings():
 		fundings.append(fund)
+		budget -= fund.get_cost()
+	EventBus.money_updated.emit(budget)
 	accepted_bin.clear()
 	refused_bin.clear()
 	for child in offer_holder.get_children():
 		child.queue_free()
 
+func _end_day() -> void:
+	var total_cost = 0
+	var total_benf = 0
+	for fund : Funding in fundings:
+		total_cost += fund.get_cost()
+		total_benf += fund.get_benefit()
+	var result = DayResult.new(start_budget, -total_cost, salary, total_benf)
+	start_budget = result.get_total()
+	budget = start_budget
+	EventBus.money_updated.emit(budget)
+	EventBus.result_day.emit(result)
+
 func _new_day(new_day: int) -> void:
 	day = new_day
+	fundings.clear()
 	
 func _new_meeting(new_meeting: int) -> void:
 	meeting = new_meeting
