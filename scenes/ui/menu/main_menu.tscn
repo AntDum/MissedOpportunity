@@ -1,19 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnn6vrhv0ohms"]
+[gd_scene load_steps=9 format=3 uid="uid://dnn6vrhv0ohms"]
 
 [ext_resource type="Script" uid="uid://cjuym30goc0w4" path="res://scripts/ui/menu/main_menu.gd" id="1_t18ix"]
 [ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="2_5ssjm"]
-
-[sub_resource type="Gradient" id="Gradient_5ssjm"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.416667, 1)
-colors = PackedColorArray(0.32, 0.173227, 0.0448, 1, 0.56478, 0.325774, 0.116624, 1, 0.69, 0.3933, 0.0966, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_eip10"]
-gradient = SubResource("Gradient_5ssjm")
-fill = 1
-fill_from = Vector2(0.87931, 0.400862)
-fill_to = Vector2(0.844828, 0.521552)
-repeat = 2
+[ext_resource type="Texture2D" uid="uid://7tlrn86rsssc" path="res://assets/sprites/backgrounds/title_bckg.png" id="2_eip10"]
 
 [sub_resource type="Animation" id="Animation_araup"]
 length = 0.001
@@ -179,7 +168,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(1280, 512)
-texture = SubResource("GradientTexture2D_eip10")
+texture = ExtResource("2_eip10")
+expand_mode = 2
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 2
@@ -194,7 +184,7 @@ offset_bottom = 38.776
 pivot_offset = Vector2(300, 39)
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 64
-text = "Missed Oppotunity"
+text = "Startup Invester"
 horizontal_alignment = 1
 vertical_alignment = 1
 
