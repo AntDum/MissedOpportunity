@@ -2,7 +2,7 @@ extends Control
 
 @onready var meeting: Label = %meeting
 @onready var budget: Label = %budget
-@onready var title: Label = $PanelContainer2/Title
+@onready var title: Label = %title
 
 func _ready() -> void:
 	EventBus.start_of_day.connect(_start_day)
@@ -17,7 +17,7 @@ func _start_meeting(new_meeting: int) -> void:
 	_show()
 
 func _update_budget(new_budget: int) -> void:
-	budget.text = str(new_budget)
+	budget.text = "%d €" % new_budget
 
 func _on_hover_button_pressed() -> void:
 	EventBus.meeting_started.emit()

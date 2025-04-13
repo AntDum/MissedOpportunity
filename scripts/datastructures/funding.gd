@@ -17,19 +17,20 @@ func _init(budget: int) -> void:
 	title = title_first_part.pick_random()
 	title += " " + title_second_part.pick_random()
 	
-	minimal_benefit = randi_range(budget/2, budget * 2)
-	cost = randi_range(budget * 1.5, budget * 3)
-	maximal_benefit = randi_range(budget * 5, budget * 20)
+	cost = randi_range(budget/2, budget * 2)
+	minimal_benefit = randi_range(cost/4, cost * 1.5)
+	maximal_benefit = randi_range(minimal_benefit * 1.5, minimal_benefit * 3)
 	
 	actual_benefit = _compute_benefit(minimal_benefit, maximal_benefit);
 	
 
 func _compute_benefit(min, max) -> int:
-	var p = randf()
-	var benefit = min
-	while _cumulative_density_function(benefit, min, max) > p:
-		benefit += 1
-	return benefit
+	return randi_range(minimal_benefit, maximal_benefit)
+	#var p = randf()
+	#var benefit = min
+	#while _cumulative_density_function(benefit, min, max) > p:
+		#benefit += 1
+	#return benefit
 
 func _cumulative_density_function(x, m, M) -> int:
 	var a = -4/(10 * m)

@@ -9,6 +9,10 @@ func _exit_tree() -> void:
 	EventBus.money_updated.disconnect(_on_score_updated)
 
 func _on_score_updated(new_score: int) -> void:
+	if new_score < 0:
+		score.label_settings.font_color = Color.RED
+	else:
+		score.label_settings.font_color = Color.GREEN
 	score.set_value(new_score)
 
 func _on_day_finished() -> void:

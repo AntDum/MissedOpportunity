@@ -15,9 +15,9 @@ var fundings = []
 var day = 0
 var meeting = 0
 @export_group("")
-@export var start_budget = 100
-var budget = 100
-@export var salary = -200
+@export var start_budget = 50
+var budget = 50
+@export var salary = -50
 
 
 func _ready() -> void:
@@ -26,9 +26,10 @@ func _ready() -> void:
 	EventBus.meeting_started.connect(_start_meeting)
 	EventBus.end_of_meeting.connect(_end_meeting)
 	EventBus.end_of_day.connect(_end_day)
+	budget = start_budget
 
 func get_difficulty() -> int:
-	return roundi(start_budget / 10.0)
+	return roundi((10 * meeting) + (10 * day))
 
 func _start_meeting() -> void:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
@@ -66,6 +67,7 @@ func _end_day() -> void:
 
 func _new_day(new_day: int) -> void:
 	day = new_day
+	EventBus.money_updated.emit(start_budget)
 	fundings.clear()
 	
 func _new_meeting(new_meeting: int) -> void:

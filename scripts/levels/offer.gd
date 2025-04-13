@@ -33,9 +33,9 @@ func _update_visual() -> void:
 	if not is_node_ready(): return
 	prints(title, funding)
 	title.text = funding.get_title()
-	cost.text = str(funding.get_cost())
-	min.text = str(funding.get_minimum())
-	max.text = str(funding.get_maximum())
+	cost.text = "%d €" % funding.get_cost()
+	min.text = "%d €" % funding.get_minimum()
+	max.text = "%d €" % funding.get_maximum()
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
