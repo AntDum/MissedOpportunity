@@ -15,7 +15,7 @@ func _ready() -> void:
 		title.label_settings.font_color = Color.RED
 		title.text = "Bankrupt"
 	else:
-		score_value.label_settings.font_color = Color.RED
+		score_value.label_settings.font_color = Color.GREEN
 		title.label_settings.font_color = Color.GREEN
 		title.text = "Success"
 		
