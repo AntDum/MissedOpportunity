@@ -63,6 +63,7 @@ func _gui_input(event: InputEvent) -> void:
 						if accepted:
 							snapped_node = shortest_node as RestPoint
 							is_snapped = true
+							AudioManager.play_sound("sheet_place")
 					else:
 						is_snapped = true
 				else:

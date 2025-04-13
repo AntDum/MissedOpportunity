@@ -41,6 +41,7 @@ func _start_meeting() -> void:
 		offer.global_position.x = spawn_point.global_position.x + offset.x * i
 		offer.global_position.y = -300
 		tween.tween_property(offer, "global_position:y", spawn_point.global_position.y + offset.y * i, 0.5)
+		tween.tween_callback(func():AudioManager.play_sound("sheet_slide"))
 
 
 func _end_meeting() -> void:
