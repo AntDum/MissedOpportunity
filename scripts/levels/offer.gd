@@ -29,7 +29,9 @@ func set_funding(funding: Funding) -> void:
 	_update_visual()
 	
 func _update_visual() -> void:
-	if not funding: return
+	if (not funding) or (funding == null): return
+	if not is_node_ready(): return
+	prints(title, funding)
 	title.text = funding.get_title()
 	cost.text = str(funding.get_cost())
 	min.text = str(funding.get_minimum())
@@ -56,10 +58,13 @@ func _gui_input(event: InputEvent) -> void:
 						shortest_node = child
 						shortest_dist = distance
 				if shortest_node:
-					is_snapped = true
 					if snapped_node != shortest_node:
-						snapped_node = shortest_node as RestPoint
-						snapped_node.select(self)
+						var accepted = shortest_node.select(self)
+						if accepted:
+							snapped_node = shortest_node as RestPoint
+							is_snapped = true
+					else:
+						is_snapped = true
 				else:
 					rest_point = Vector2.ZERO
 					if snapped_node:

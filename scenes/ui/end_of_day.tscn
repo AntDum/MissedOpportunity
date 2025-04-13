@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ojuuen6cauuw"]
+[gd_scene load_steps=4 format=3 uid="uid://ojuuen6cauuw"]
 
 [ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="1_7g7pd"]
 [ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="1_l8ay4"]
+[ext_resource type="Script" uid="uid://6xmna6hkerns" path="res://scripts/ui/end_of_day.gd" id="1_v0pmp"]
 
 [node name="EndOfDay" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_v0pmp")
 
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -138,3 +140,5 @@ size_flags_horizontal = 3
 text = "GO"
 script = ExtResource("1_l8ay4")
 metadata/_custom_type_script = "uid://calio6yuvvuaq"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/HoverButton" to="." method="_on_hover_button_pressed"]

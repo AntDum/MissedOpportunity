@@ -1,9 +1,14 @@
-[gd_scene load_steps=0 format=3 uid="uid://b6b1pdclvvebb"]
+[gd_scene load_steps=2 format=3 uid="uid://b6b1pdclvvebb"]
+
+[ext_resource type="Script" uid="uid://cg6g2pd3vubg5" path="res://scripts/ui/end_of_week.gd" id="1_c5wqp"]
 
 [node name="EndOfWeek" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c5wqp")

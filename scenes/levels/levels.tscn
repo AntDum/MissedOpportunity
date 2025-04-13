@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://m2c3cuf6p6fx"]
+[gd_scene load_steps=8 format=3 uid="uid://m2c3cuf6p6fx"]
 
 [ext_resource type="Script" uid="uid://boi4hd30pl0t8" path="res://scripts/levels/levels.gd" id="1_ji4ch"]
 [ext_resource type="Script" uid="uid://dvw0t7vo5pdtm" path="res://scripts/managers/game_manager.gd" id="2_1pm3m"]
 [ext_resource type="PackedScene" uid="uid://b7igaxmtf73gy" path="res://scenes/ui/ui.tscn" id="3_cfubq"]
+[ext_resource type="PackedScene" uid="uid://ojuuen6cauuw" path="res://scenes/ui/end_of_day.tscn" id="4_3gguj"]
+[ext_resource type="PackedScene" uid="uid://bj0u4rkv4q1f3" path="res://scenes/ui/meeting.tscn" id="5_eernp"]
+[ext_resource type="PackedScene" uid="uid://b6b1pdclvvebb" path="res://scenes/ui/end_of_week.tscn" id="6_6p30w"]
+[ext_resource type="Script" uid="uid://chndb8dmqevcb" path="res://scripts/managers/ressource_management.gd" id="7_eernp"]
 
 [node name="Levels" type="Node2D"]
 script = ExtResource("1_ji4ch")
@@ -11,4 +15,23 @@ script = ExtResource("1_ji4ch")
 script = ExtResource("2_1pm3m")
 metadata/_custom_type_script = "uid://dvw0t7vo5pdtm"
 
+[node name="RessourceManager" type="Node" parent="." node_paths=PackedStringArray("accepted_bin", "refused_bin", "offer_holder", "spawn_point")]
+script = ExtResource("7_eernp")
+accepted_bin = NodePath("../Ui/AcceptPoint")
+refused_bin = NodePath("../Ui/RefusePoint")
+offer_holder = NodePath("../Ui/Offers")
+spawn_point = NodePath("../Ui/SpawnPoint")
+metadata/_custom_type_script = "uid://chndb8dmqevcb"
+
 [node name="Ui" parent="." instance=ExtResource("3_cfubq")]
+
+[node name="EndOfDay" parent="Ui" instance=ExtResource("4_3gguj")]
+visible = false
+
+[node name="Meeting" parent="Ui" instance=ExtResource("5_eernp")]
+visible = false
+
+[node name="EndOfWeek" parent="Ui" instance=ExtResource("6_6p30w")]
+visible = false
+
+[editable path="Ui"]
