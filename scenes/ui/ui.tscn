@@ -1,23 +1,82 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7igaxmtf73gy"]
+[gd_scene load_steps=4 format=3 uid="uid://b7igaxmtf73gy"]
 
 [ext_resource type="Script" uid="uid://novmfxmon522" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="2_f5cxw"]
+[ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="3_aac20"]
 
 [node name="Ui" type="CanvasLayer"]
 script = ExtResource("1_u7n8c")
 
-[node name="TopLeftContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+[node name="SpawnPoint" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Score" type="Label" parent="TopLeftContainer"]
+[node name="RefusePoint" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.15
+anchor_top = 0.5
+anchor_right = 0.15
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="AcceptPoint" type="Control" parent="."]
+layout_mode = 3
+anchor_left = 0.85
+anchor_top = 0.5
+anchor_right = 0.85
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TopLeftContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -119.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Money" type="Label" parent="TopLeftContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Score : 10"
+theme_override_colors/font_color = Color(0.241543, 0.692471, 0, 1)
+theme_override_colors/font_outline_color = Color(0.0403711, 0.274897, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "555 €"
+horizontal_alignment = 2
 script = ExtResource("2_f5cxw")
-pattern = "Score : %d"
+pattern = "%d €"
 metadata/_custom_type_script = "uid://n6d1b1v73abg"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_aac20")

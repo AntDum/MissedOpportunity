@@ -9,3 +9,5 @@ script = ExtResource("1_ji4ch")
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_1pm3m")
 metadata/_custom_type_script = "uid://dvw0t7vo5pdtm"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

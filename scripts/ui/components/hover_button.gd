@@ -2,6 +2,7 @@ extends Button
 class_name HoverButton
 
 var tween : Tween
+@export var scaling : float = 1.2
 
 func _enter_tree() -> void:
 	mouse_entered.connect(_on_mouse_entered)
@@ -20,7 +21,7 @@ func _on_mouse_entered() -> void:
 	_reset()
 	AudioManager.play_sound("hover")
 	tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "scale", Vector2.ONE * 1.4, 0.15)
+	tween.tween_property(self, "scale", Vector2.ONE * scaling, 0.15)
 
 func _on_mouse_exited() -> void:
 	_reset()

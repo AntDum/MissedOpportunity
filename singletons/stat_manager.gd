@@ -5,7 +5,7 @@ var best_score : int = 0
 var beat_best_score : bool = false
 
 func _ready() -> void:
-	EventBus.score_updated.connect(_on_score_updated)
+	EventBus.money_updated.connect(_on_score_updated)
 	EventBus.game_started.connect(_on_game_started)
 
 func _on_game_started() -> void:
