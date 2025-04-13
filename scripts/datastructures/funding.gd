@@ -1,8 +1,8 @@
 extends RefCounted
 class_name Funding
 
-const title_first_part = ["Atlantic", "Quantum", "Eco", "North", "Crypto", "Proud", "Emotional", "Healing", "Nostalgic", "Scorching", "Dating", "Flying", "Elemental", "Spooky", "Disguised", "Logical"]
-const title_second_part = ["Leaf", "Sea", "Pole", "Star", "Lettuce", "Lab", "Group", "Bird", "Damage", "Spikes", "Cow", "G@m3rzzz", "Fruits", "Barbarian", "Gods", "Cheese", "Witches", "Clowns", "Farmers", "B.R.I.D.G.E", "Gate"]
+const title_first_part = ["Atlantic", "Quantum", "Eco", "North", "Crypto", "Proud", "Emotional", "Healing", "Nostalgic", "Scorching", "Dating", "Flying", "Elemental", "Spooky", "Disguised", "Logical", "Holy", "Western", "Iron"]
+const title_second_part = ["Leaf", "Sea", "Pole", "Star", "Lettuce", "Lab", "Group", "Bird", "Damage", "Spikes", "Cow", "G@m3rzzz", "Fruits", "Barbarian", "Gods", "Cheese", "Witches", "Clowns", "Farmers", "B.R.I.D.G.E", "Gate", "Dragon", "Iron", "Legion", "Kings"]
 
 var minimal_benefit = 0
 var maximal_benefit = 1
