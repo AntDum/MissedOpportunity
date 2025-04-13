@@ -51,7 +51,7 @@ func _day_ended() -> void:
 func _end_meeting() -> void:
 	print("Meeting ended")	
 	if meeting == 3:
-		end_day()
+		call_deferred("end_day")
 	else:
 		start_meeting()
 
