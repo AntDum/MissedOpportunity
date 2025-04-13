@@ -24,14 +24,14 @@ func _init(budget: int) -> void:
 	actual_benefit = _compute_benefit(minimal_benefit, maximal_benefit);
 	
 
-func _compute_benefit(min, max):
+func _compute_benefit(min, max) -> int:
 	var p = randf()
 	var benefit = min
 	while _cumulative_density_function(benefit, min, max) > p:
 		benefit += 1
-	
+	return benefit
 
-func _cumulative_density_function(x, m, M):
+func _cumulative_density_function(x, m, M) -> int:
 	var a = -4/(10 * m)
 	var b = 14/10
 	var c = 0.2/((27*m**3) - (M**3))
