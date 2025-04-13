@@ -12,7 +12,7 @@ func _ready() -> void:
 	EventBus.money_updated.connect(_update_money)
 
 func _update_money(new_money) -> void:
-	if new_money <= 0:
+	if new_money < 0:
 		cur_max = minimum
 	else:
 		cur_max = maximum

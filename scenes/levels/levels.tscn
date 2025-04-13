@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://m2c3cuf6p6fx"]
+[gd_scene load_steps=20 format=3 uid="uid://m2c3cuf6p6fx"]
 
 [ext_resource type="Script" uid="uid://boi4hd30pl0t8" path="res://scripts/levels/levels.gd" id="1_ji4ch"]
 [ext_resource type="Script" uid="uid://dvw0t7vo5pdtm" path="res://scripts/managers/game_manager.gd" id="2_1pm3m"]
@@ -9,15 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://bj0u4rkv4q1f3" path="res://scenes/ui/meeting.tscn" id="5_eernp"]
 [ext_resource type="Texture2D" uid="uid://cnkmrin8jcgsd" path="res://assets/sprites/backgrounds/carpet.png" id="6_4h077"]
 [ext_resource type="PackedScene" uid="uid://b6b1pdclvvebb" path="res://scenes/ui/end_of_week.tscn" id="6_6p30w"]
-[ext_resource type="Texture2D" uid="uid://c0e44mdqd3pjp" path="res://assets/sprites/ui/ui_base/Red/Double/check_square_color_cross.png" id="6_s0aa0"]
+[ext_resource type="Texture2D" uid="uid://c0e44mdqd3pjp" path="res://assets/sprites/ui/check_square_color_cross.png" id="6_s0aa0"]
 [ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="6_xktef"]
 [ext_resource type="Texture2D" uid="uid://opwgb1rhoh8j" path="res://assets/sprites/backgrounds/computer.png" id="7_0uusg"]
-[ext_resource type="Texture2D" uid="uid://d2f5bvhbteu1x" path="res://assets/sprites/ui/ui_base/Green/Double/check_square_color_checkmark.png" id="7_2jkuu"]
+[ext_resource type="Texture2D" uid="uid://d2f5bvhbteu1x" path="res://assets/sprites/ui/check_square_color_checkmark.png" id="7_2jkuu"]
 [ext_resource type="Script" uid="uid://c27p4l4gcmvh8" path="res://scripts/levels/restPoint.gd" id="7_6p30w"]
 [ext_resource type="Script" uid="uid://chndb8dmqevcb" path="res://scripts/managers/ressource_management.gd" id="7_eernp"]
 [ext_resource type="Script" uid="uid://c5iledwiss43y" path="res://scripts/ui/components/hover_texture_button.gd" id="7_y6an2"]
 [ext_resource type="Texture2D" uid="uid://bfgq7rr8lf447" path="res://assets/sprites/phone.png" id="13_vlq28"]
-[ext_resource type="Texture2D" uid="uid://df8wu16r1n67q" path="res://assets/sprites/ui/ui_base/Blue/Double/arrow_decorative_e_small.png" id="14_0uusg"]
+[ext_resource type="Texture2D" uid="uid://df8wu16r1n67q" path="res://assets/sprites/ui/arrow_decorative_e_small.png" id="14_0uusg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hdn0s"]
 font_size = 45

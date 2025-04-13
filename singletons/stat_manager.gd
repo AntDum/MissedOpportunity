@@ -3,10 +3,12 @@ extends Node
 var score : int = 0
 var best_score : int = 0
 var beat_best_score : bool = false
+var bankrupt : bool = false
 
 func _ready() -> void:
 	EventBus.money_updated.connect(_on_score_updated)
 	EventBus.game_started.connect(_on_game_started)
+	EventBus.lost.connect(func(): bankrupt = true)
 
 func _on_game_started() -> void:
 	score = 0

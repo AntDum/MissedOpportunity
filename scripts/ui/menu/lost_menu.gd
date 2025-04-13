@@ -3,12 +3,18 @@ extends CanvasLayer
 const LEVELS = "res://scenes/levels/levels.tscn"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var title: Label = %Title
 
 @onready var score_value: AnimatedCounter = %ScoreValue
 @onready var best_score_value: AnimatedCounter = %BestScoreValue
 
 func _ready() -> void:
 	animation_player.play("show")
+	if StatManager.bankrupt:
+		title.text = "Bankrupt"
+	else:
+		title.text = "Success"
+		
 
 func _finished_in_animation() -> void:
 	var tween = create_tween()

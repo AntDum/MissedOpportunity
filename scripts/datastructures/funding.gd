@@ -18,8 +18,8 @@ func _init(budget: int) -> void:
 	title += " " + title_second_part.pick_random()
 	
 	cost = randi_range(budget/2, budget * 2)
-	minimal_benefit = randi_range(cost/4, cost * 1.5)
-	maximal_benefit = randi_range(minimal_benefit * 1.5, minimal_benefit * 3)
+	maximal_benefit = randi_range(cost, cost*2)
+	minimal_benefit = randi_range(maximal_benefit/8, cost)
 	
 	actual_benefit = _compute_benefit(minimal_benefit, maximal_benefit);
 	

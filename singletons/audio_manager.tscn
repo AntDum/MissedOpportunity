@@ -12,6 +12,7 @@ metadata/_custom_type_script = "uid://cngg7yff8h3xl"
 
 [node name="click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_skl7r")
+volume_db = -17.907
 bus = &"UI"
 
 [node name="hover" type="AudioStreamPlayer" parent="."]
@@ -20,10 +21,12 @@ bus = &"UI"
 
 [node name="title_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ja7m3")
+volume_db = -25.559
 bus = &"Music"
 parameters/looping = true
 
 [node name="main_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gs1iy")
+volume_db = -27.322
 bus = &"Music"
 parameters/looping = true
