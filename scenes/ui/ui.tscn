@@ -1,11 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7igaxmtf73gy"]
+[gd_scene load_steps=7 format=3 uid="uid://b7igaxmtf73gy"]
 
 [ext_resource type="Script" uid="uid://novmfxmon522" path="res://scripts/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="2_f5cxw"]
-[ext_resource type="Script" uid="uid://calio6yuvvuaq" path="res://scripts/ui/components/hover_button.gd" id="3_aac20"]
+[ext_resource type="PackedScene" uid="uid://daugox5y52kkn" path="res://scenes/levels/offer.tscn" id="2_g5kmx"]
+[ext_resource type="Script" uid="uid://c27p4l4gcmvh8" path="res://scripts/levels/restPoint.gd" id="3_0dwhk"]
+[ext_resource type="Script" uid="uid://c5iledwiss43y" path="res://scripts/ui/components/hover_texture_button.gd" id="4_g5kmx"]
+[ext_resource type="Texture2D" uid="uid://bxhdqyhcf2gka" path="res://icon.svg" id="5_pfayw"]
 
-[node name="Ui" type="CanvasLayer"]
+[node name="Ui" type="CanvasLayer" node_paths=PackedStringArray("accepted_bin", "refused_bin")]
 script = ExtResource("1_u7n8c")
+accepted_bin = NodePath("AcceptPoint")
+refused_bin = NodePath("RefusePoint")
+
+[node name="Offers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Offer" parent="Offers" instance=ExtResource("2_g5kmx")]
+layout_mode = 1
+offset_left = 556.0
+offset_top = 304.0
+offset_right = 556.0
+offset_bottom = 304.0
+
+[node name="Offer2" parent="Offers" instance=ExtResource("2_g5kmx")]
+layout_mode = 1
+offset_left = 721.0
+offset_top = 437.0
+offset_right = 721.0
+offset_bottom = 437.0
 
 [node name="SpawnPoint" type="Control" parent="."]
 layout_mode = 3
@@ -21,7 +46,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RefusePoint" type="Control" parent="."]
+[node name="RefusePoint" type="Control" parent="." groups=["restPoint"]]
 layout_mode = 3
 anchor_left = 0.15
 anchor_top = 0.5
@@ -31,8 +56,9 @@ offset_top = -20.0
 offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
+script = ExtResource("3_0dwhk")
 
-[node name="AcceptPoint" type="Control" parent="."]
+[node name="AcceptPoint" type="Control" parent="." groups=["restPoint"]]
 layout_mode = 3
 anchor_left = 0.85
 anchor_top = 0.5
@@ -43,14 +69,16 @@ offset_top = -20.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("3_0dwhk")
 
 [node name="TopLeftContainer" type="MarginContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -119.0
-offset_bottom = 40.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -70.0
+offset_right = 70.0
+offset_bottom = 85.0
+grow_horizontal = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
@@ -63,7 +91,7 @@ theme_override_colors/font_color = Color(0.241543, 0.692471, 0, 1)
 theme_override_colors/font_outline_color = Color(0.0403711, 0.274897, 0, 1)
 theme_override_font_sizes/font_size = 45
 text = "555 €"
-horizontal_alignment = 2
+horizontal_alignment = 1
 script = ExtResource("2_f5cxw")
 pattern = "%d €"
 metadata/_custom_type_script = "uid://n6d1b1v73abg"
@@ -79,4 +107,7 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("3_aac20")
+texture_normal = ExtResource("5_pfayw")
+script = ExtResource("4_g5kmx")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_day_finished"]
