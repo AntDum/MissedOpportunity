@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://m0ks2f78pmdo"]
 
-[ext_resource type="Script" path="res://scripts/levels/offer.gd" id="1_me8d0"]
+[ext_resource type="Script" uid="uid://c0f36fndrn4rv" path="res://scripts/levels/offer.gd" id="1_me8d0"]
 
 [sub_resource type="Gradient" id="Gradient_pp0wm"]
 offsets = PackedFloat32Array(0)
@@ -73,8 +73,15 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(138, 63)
 layout_mode = 2
+size_flags_vertical = 1
 text = "Name"
+autowrap_mode = 3
+
+[node name="Control" type="HSeparator" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2

@@ -1,14 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://m2c3cuf6p6fx"]
+[gd_scene load_steps=13 format=3 uid="uid://m2c3cuf6p6fx"]
 
 [ext_resource type="Script" uid="uid://boi4hd30pl0t8" path="res://scripts/levels/levels.gd" id="1_ji4ch"]
 [ext_resource type="Script" uid="uid://dvw0t7vo5pdtm" path="res://scripts/managers/game_manager.gd" id="2_1pm3m"]
-[ext_resource type="PackedScene" uid="uid://b7igaxmtf73gy" path="res://scenes/ui/ui.tscn" id="3_cfubq"]
 [ext_resource type="PackedScene" uid="uid://ojuuen6cauuw" path="res://scenes/ui/end_of_day.tscn" id="4_3gguj"]
+[ext_resource type="Texture2D" uid="uid://dx72f8qhpn77n" path="res://assets/sprites/sheet_grid.png" id="4_hdn0s"]
+[ext_resource type="Script" uid="uid://novmfxmon522" path="res://scripts/ui/ui.gd" id="5_6p30w"]
 [ext_resource type="PackedScene" uid="uid://bj0u4rkv4q1f3" path="res://scenes/ui/meeting.tscn" id="5_eernp"]
 [ext_resource type="PackedScene" uid="uid://b6b1pdclvvebb" path="res://scenes/ui/end_of_week.tscn" id="6_6p30w"]
+[ext_resource type="Script" uid="uid://n6d1b1v73abg" path="res://scripts/ui/components/animated_counter.gd" id="6_xktef"]
+[ext_resource type="Script" uid="uid://c27p4l4gcmvh8" path="res://scripts/levels/restPoint.gd" id="7_6p30w"]
 [ext_resource type="Script" uid="uid://chndb8dmqevcb" path="res://scripts/managers/ressource_management.gd" id="7_eernp"]
+[ext_resource type="Texture2D" uid="uid://bxhdqyhcf2gka" path="res://icon.svg" id="7_wcdgn"]
+[ext_resource type="Script" uid="uid://c5iledwiss43y" path="res://scripts/ui/components/hover_texture_button.gd" id="7_y6an2"]
 
-[node name="Levels" type="Node2D"]
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ji4ch")
 
 [node name="GameManager" type="Node" parent="."]
@@ -17,21 +28,166 @@ metadata/_custom_type_script = "uid://dvw0t7vo5pdtm"
 
 [node name="RessourceManager" type="Node" parent="." node_paths=PackedStringArray("accepted_bin", "refused_bin", "offer_holder", "spawn_point")]
 script = ExtResource("7_eernp")
-accepted_bin = NodePath("../Ui/AcceptPoint")
-refused_bin = NodePath("../Ui/RefusePoint")
-offer_holder = NodePath("../Ui/Offers")
-spawn_point = NodePath("../Ui/SpawnPoint")
+accepted_bin = NodePath("../Points/Accept/AcceptPoint")
+refused_bin = NodePath("../Points/Refuse/RefusePoint")
+offer_holder = NodePath("../Offers")
+spawn_point = NodePath("../Points/SpawnPoint")
 metadata/_custom_type_script = "uid://chndb8dmqevcb"
 
-[node name="Ui" parent="." instance=ExtResource("3_cfubq")]
+[node name="Points" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EndOfDay" parent="Ui" instance=ExtResource("4_3gguj")]
+[node name="SpawnPoint" type="Control" parent="Points"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Refuse" type="TextureRect" parent="Points"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+grow_vertical = 2
+texture = ExtResource("4_hdn0s")
+
+[node name="RefusePoint" type="Control" parent="Points/Refuse" groups=["restPoint"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_6p30w")
+metadata/_custom_type_script = "uid://c27p4l4gcmvh8"
+
+[node name="Accept" type="TextureRect" parent="Points"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_hdn0s")
+
+[node name="AcceptPoint" type="Control" parent="Points/Accept" groups=["restPoint"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_6p30w")
+maximum = 2
+metadata/_custom_type_script = "uid://c27p4l4gcmvh8"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_6p30w")
+
+[node name="CenterTop" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Money" type="Label" parent="CanvasLayer/UI/CenterTop"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.247059, 0.552941, 0, 1)
+theme_override_colors/font_outline_color = Color(0.054902, 0.380392, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "500 €"
+horizontal_alignment = 1
+script = ExtResource("6_xktef")
+pattern = "%d €"
+metadata/_custom_type_script = "uid://n6d1b1v73abg"
+
+[node name="CenterBottom" type="MarginContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NextDay" type="TextureButton" parent="CanvasLayer/UI/CenterBottom"]
+layout_mode = 2
+texture_normal = ExtResource("7_wcdgn")
+script = ExtResource("7_y6an2")
+scaling = 1.1
+metadata/_custom_type_script = "uid://c5iledwiss43y"
+
+[node name="EndOfDay" parent="CanvasLayer" instance=ExtResource("4_3gguj")]
 visible = false
 
-[node name="Meeting" parent="Ui" instance=ExtResource("5_eernp")]
+[node name="EndOfWeek" parent="CanvasLayer" instance=ExtResource("6_6p30w")]
 visible = false
 
-[node name="EndOfWeek" parent="Ui" instance=ExtResource("6_6p30w")]
+[node name="Meeting" parent="CanvasLayer" instance=ExtResource("5_eernp")]
 visible = false
 
-[editable path="Ui"]
+[node name="Offers" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="CanvasLayer/UI/CenterBottom/NextDay" to="CanvasLayer/UI" method="_on_day_finished"]
