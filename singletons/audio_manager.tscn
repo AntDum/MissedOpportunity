@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://k7bodxn70u3t"]
+[gd_scene load_steps=6 format=3 uid="uid://k7bodxn70u3t"]
 
 [ext_resource type="Script" uid="uid://cngg7yff8h3xl" path="res://singletons/audio_manager.gd" id="1_dkrcq"]
 [ext_resource type="AudioStream" uid="uid://dqwc7bmkdk3fj" path="res://assets/sounds/ui/click.wav" id="2_skl7r"]
 [ext_resource type="AudioStream" uid="uid://d7nbl3apkn6u" path="res://assets/sounds/ui/hover.wav" id="3_ca8rr"]
+[ext_resource type="AudioStream" uid="uid://b1r6dwujip5ch" path="res://assets/music/music1.mp3" id="4_ja7m3"]
+[ext_resource type="AudioStream" uid="uid://c8nog5s80usqs" path="res://assets/music/music2.mp3" id="5_gs1iy"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_dkrcq")
@@ -15,3 +17,13 @@ bus = &"UI"
 [node name="hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ca8rr")
 bus = &"UI"
+
+[node name="title_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ja7m3")
+bus = &"Music"
+parameters/looping = true
+
+[node name="main_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gs1iy")
+bus = &"Music"
+parameters/looping = true
