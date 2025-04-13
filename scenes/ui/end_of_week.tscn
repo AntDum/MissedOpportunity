@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b6b1pdclvvebb"]
+[gd_scene load_steps=0 format=3 uid="uid://b6b1pdclvvebb"]
 
 [node name="EndOfWeek" type="Control"]
 layout_mode = 3

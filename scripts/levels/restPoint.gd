@@ -5,7 +5,7 @@ class_name RestPoint
 var offers : Array[Offer] = []
 
 func get_fundings() -> Array[Funding]:
-	var fundings = []
+	var fundings : Array[Funding]= []
 	for child in offers:
 		fundings.append(child.funding)
 	return fundings
